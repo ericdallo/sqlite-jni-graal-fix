@@ -1,15 +1,17 @@
-import com.oracle.svm.core.annotate.AutomaticFeature;
-import com.oracle.svm.core.jni.JNIRuntimeAccess;
-import org.graalvm.nativeimage.hosted.Feature;
-import org.graalvm.nativeimage.hosted.RuntimeReflection;
-import org.sqlite.Function;
-import org.sqlite.ProgressHandler;
-import org.sqlite.core.NativeDB;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+
+import com.oracle.svm.core.annotate.AutomaticFeature;
+import com.oracle.svm.core.jni.JNIRuntimeAccess;
+
+import org.graalvm.nativeimage.hosted.Feature;
+import org.graalvm.nativeimage.hosted.RuntimeReflection;
+import org.sqlite.BusyHandler;
+import org.sqlite.Function;
+import org.sqlite.ProgressHandler;
+import org.sqlite.core.NativeDB;
 
 @AutomaticFeature
 class JNIReflectionClasses implements Feature {
@@ -37,12 +39,15 @@ class JNIReflectionClasses implements Feature {
 	 */
 	Class<?>[] getClasses(){
 		return new Class[]{
+			org.sqlite.core.DB.class,
 			NativeDB.class,
+			BusyHandler.class,
 			Function.class,
-			Function.Aggregate.class,
 			ProgressHandler.class,
+			Function.Aggregate.class,
 			Function.Window.class,
-			org.sqlite.core.DB.ProgressObserver.class
+			org.sqlite.core.DB.ProgressObserver.class,
+			java.lang.Throwable.class,
 		};
 	}
 
