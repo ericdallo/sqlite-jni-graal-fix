@@ -1,4 +1,4 @@
-(defproject ericdallo/sqlite-jni-graal-fix "0.0.2-graalvm-21.0.0"
+(defproject ericdallo/sqlite-jni-graal-fix "0.0.3-graalvm-21.0.0"
   :description "A fix for sqlite issue with jni missing classes in GraalVM native-image."
   :license {:name "Eclipse Public License 1.0"
             :url "http://opensource.org/licenses/eclipse-1.0.php"}
@@ -12,4 +12,5 @@
   :deploy-repositories [["clojars" {:url "https://clojars.org/repo"
                                     :username :env/clojars_user
                                     :password :env/clojars_pass
-                                    :sign-releases false}]])
+                                    :sign-releases false}]]
+  :profiles {:uberjar {:aot :all}})
