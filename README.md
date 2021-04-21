@@ -12,5 +12,5 @@ Just add this lib to your app classpath, for example using `lein`:
 (defproject sample "1.0.0"
   ...
   :profiles {:native-image 
-              {:dependencies [[ericdallo/sqlite-jni-graal-fix "0.0.2-graalvm-21.1.0"]]}})
+              {:dependencies [[ericdallo/sqlite-jni-graal-fix "0.0.3-graalvm-21.1.0"]]}})
 ```
